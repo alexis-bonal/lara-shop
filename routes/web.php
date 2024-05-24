@@ -20,7 +20,12 @@ Route::view('/contact', 'contact')->name('contact');
 Route::get('/cart', [CartController::class, 'index'])->name('cart');
 
 // Page de Produits
+
+
 Route::get('/products', [ProductController::class, 'index'])->name('products.index');
+Route::get('/products/{id}', [ProductController::class, 'show'])->name('products.show');
+
+
 Route::get('/products/category/{category}', [ProductController::class, 'category'])->name('products.category');
 
 // Page de Détail d'un Produit

@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                    {{ __('Bienvenue chez Lara-Shop, votre boutique en ligne dédiée aux briques de construction de la plus haute qualité. Que vous soyez un professionnel de la construction, un bricoleur passionné ou que vous souhaitiez simplement apporter une touche unique à votre maison, Lara-Shop est là pour répondre à tous vos besoins') }}
                 </div>
             </div>
         </div>
