@@ -13,7 +13,25 @@
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
-    <!-- Scripts -->
+    <!-- Styles -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .jumbotron {
+            background-color: transparent;
+        }
+        .content-wrapper {
+            margin-top: 40px;
+
+        }
+        .container-custom {
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 1200px;
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+    </style>
+
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 <body>
@@ -31,12 +49,12 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
-                           <li class="nav-item">
-                <a class="nav-link" href="{{ url('/products') }}">Produit</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{ url('/contact') }}">Panier</a>
-            </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/products') }}">Produit</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/cart') }}">Panier</a>
+                        </li>
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
@@ -73,9 +91,15 @@
             </div>
         </nav>
 
-        <main class="py-4">
-            @yield('content')
+        <main class="py-4 content-wrapper">
+            <div class="container-custom">
+                @yield('content')
+            </div>
         </main>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

@@ -21,7 +21,6 @@ Route::get('/cart', [CartController::class, 'index'])->name('cart');
 
 // Page de Produits
 
-
 Route::get('/products', [ProductController::class, 'index'])->name('products.index');
 Route::get('/products/{id}', [ProductController::class, 'show'])->name('products.show');
 
@@ -41,7 +40,7 @@ Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.in
 Route::post('/checkout', [CheckoutController::class, 'process'])->name('checkout.process');
 
 // Espace Utilisateur
-Auth::routes(); 
+Auth::routes();
 Route::get('/user/orders', [UserController::class, 'orders'])->name('user.orders')->middleware('auth');
 
 // Accès Administration
