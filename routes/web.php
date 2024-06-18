@@ -29,12 +29,13 @@ Route::get('/products/category/{category}', [ProductController::class, 'category
 
 // Page de Détail d'un Produit
 Route::get('/products/{product}', [ProductController::class, 'show'])->name('products.show');
-
+Route::get('/products/{id}', [ProductController::class, 'show'])->name('products.show');
 // Page de Panier
-Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add');
-Route::post('/cart/update', [CartController::class, 'update'])->name('cart.update');
-Route::post('/cart/remove', [CartController::class, 'remove'])->name('cart.remove');
 
+Route::post('/cart/add/{id}', [CartController::class, 'add'])->name('cart.add');
+Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+Route::post('/cart/update/{id}', [CartController::class, 'update'])->name('cart.update');
+Route::post('/cart/remove/{id}', [CartController::class, 'remove'])->name('cart.remove');
 // Validation du Panier
 Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index');
 Route::post('/checkout', [CheckoutController::class, 'process'])->name('checkout.process');
@@ -49,4 +50,6 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::resource('/admin/products', AdminProductController::class);
     Route::resource('/admin/orders', AdminOrderController::class);
     Route::resource('/admin/coupons', AdminCouponController::class);
+
+
 });

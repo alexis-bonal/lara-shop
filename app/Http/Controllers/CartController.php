@@ -13,7 +13,7 @@ class CartController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+  public function index()
     {
         $cart = session()->get('cart', []);
         return view('cart', compact('cart'));
@@ -25,8 +25,8 @@ class CartController extends Controller
      * @param \Illuminate\Http\Request $request
      * @param int $id
      * @return \Illuminate\Http\Response
-     */
-    public function add(Request $request, $id)
+     */   
+     public function add(Request $request, $id)
     {
         $product = Product::findOrFail($id);
         $cart = session()->get('cart', []);
@@ -43,9 +43,8 @@ class CartController extends Controller
         }
 
         session()->put('cart', $cart);
-        return redirect()->back()->with('success', 'Produit ajouté au panier avec succés');
+        return redirect()->back()->with('success', "{$cart[$id]['name']} ajouté au panier avec succès");
     }
-
     /**
      * Update the specified item in the cart.
      *
@@ -53,17 +52,21 @@ class CartController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+  public function update(Request $request, $id)
     {
         $cart = session()->get('cart', []);
         if (isset($cart[$id])) {
+            $productName = $cart[$id]['name'];
             $cart[$id]['quantity'] = $request->quantity;
             session()->put('cart', $cart);
-            return redirect()->route('cart.index')->with('success', 'Panier mis à jour!');
+            return redirect()->route('cart.index')->with('success', "Quantité du produit {$cart[$id]['name']} mise à jour x{$request->quantity}.");
         }
 
-        return redirect()->route('cart.index')->with('error', 'Produit non trouvée dans le panier!');
+        return redirect()->route('cart.index')->with('error', 'Produit non trouvé dans le panier.');
     }
+
+
+
 
     /**
      * Remove the specified item from the cart.
@@ -71,16 +74,24 @@ class CartController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function remove($id)
+   
+    /**
+     * Remove the specified item from the cart.
+     *
+     * @param int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function remove(Request $request, $id)
     {
         $cart = session()->get('cart', []);
         if (isset($cart[$id])) {
+            $productName = $cart[$id]['name'];
             unset($cart[$id]);
             session()->put('cart', $cart);
-            return redirect()->route('cart.index')->with('success', 'Produit supprimer!');
+            return redirect()->route('cart.index')->with('success', "{$productName} supprimé.");
         }
 
-        return redirect()->route('cart.index')->with('error', 'Produit non trouvée dans le panier!');
+        return redirect()->route('cart.index')->with('error', 'Produit non trouvé dans le panier.');
     }
 
     /**
