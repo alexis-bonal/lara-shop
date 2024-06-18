@@ -18,3 +18,8 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
+ds_store
+/public/build
+/public/hot
+.ds_store
+./ds_store
