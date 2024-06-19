@@ -32,9 +32,7 @@
             <tbody>
                 @foreach($cart as $id => $details)
                     <tr>
-                        <td>
-                            {{ $details['name'] }}
-                        </td>
+                        <td>{{ $details['name'] }}</td>
                         <td>
                             <form action="{{ route('cart.update', $id) }}" method="POST">
                                 @csrf
@@ -55,10 +53,12 @@
             </tbody>
         </table>
 
-      
-
         <div class="total mt-3">
             <h3>Total: {{ array_sum(array_map(function($item) { return $item['price'] * $item['quantity']; }, $cart)) }} €</h3>
+        </div>
+
+        <div class="checkout mt-4">
+            <a href="{{ route('checkout.index') }}" class="btn btn-primary btn-sm mt-1">Commander</a>
         </div>
     @else
         <p>Votre panier est vide.</p>
