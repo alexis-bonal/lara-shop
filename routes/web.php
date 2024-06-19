@@ -50,6 +50,11 @@ Auth::routes();
 Route::get('/user/orders', [UserController::class, 'orders'])->name('user.orders')->middleware('auth');
 Route::get('/user/orders/{id}', [UserController::class, 'orderDetails'])->name('user.order.details')->middleware('auth');
 
+// Coupon dans le checkout
+Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index');
+Route::post('/checkout/applyCoupon', [CheckoutController::class, 'applyCoupon'])->name('checkout.applyCoupon');
+Route::post('/checkout', [CheckoutController::class, 'process'])->name('checkout.process');
+
 Route::middleware(['auth'])->group(function () {
     Route::get('/user/orders', [UserController::class, 'orders'])->name('user.orders');
     Route::get('/user/orders/{id}', [UserController::class, 'orderDetails'])->name('user.order.details');
