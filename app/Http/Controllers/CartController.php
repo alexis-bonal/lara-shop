@@ -26,25 +26,26 @@ class CartController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */   
-     public function add(Request $request, $id)
-    {
-        $product = Product::findOrFail($id);
-        $cart = session()->get('cart', []);
+public function add(Request $request, $id, $quantity)
+{
+    $product = Product::findOrFail($id);
+    $cart = session()->get('cart', []);
 
-        if (isset($cart[$id])) {
-            $cart[$id]['quantity'] += $request->quantity;
-        } else {
-            $cart[$id] = [
-                "name" => $product->name,
-                "quantity" => $request->quantity,
-                "price" => $product->price,
-                "image" => $product->image
-            ];
-        }
-
-        session()->put('cart', $cart);
-        return redirect()->back()->with('success', "{$cart[$id]['name']} ajouté au panier avec succès");
+    if (isset($cart[$id])) {
+        $cart[$id]['quantity'] += $quantity;
+    } else {
+        $cart[$id] = [
+            "name" => $product->name,
+            "quantity" => $quantity,
+            "price" => $product->price,
+            "image" => $product->image
+        ];
     }
+
+    session()->put('cart', $cart);
+    return redirect()->back()->with('success', "{$cart[$id]['name']} ajouté au panier avec succès");
+}
+
     /**
      * Update the specified item in the cart.
      *

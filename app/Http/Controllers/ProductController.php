@@ -32,9 +32,8 @@ class ProductController extends Controller
         $products = $category->products;
         return view('products.category', compact('category', 'products'));
     }
-
-    public function show(Product $product)
-    {
-        return view('products.show', compact('product'));
-    }
+public function show(Product $product)
+{
+    return view('products.show', compact('product'));
+}
 }

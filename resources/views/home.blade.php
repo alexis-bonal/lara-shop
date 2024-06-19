@@ -19,8 +19,12 @@
                     <div class="card-body">
                         <h5 class="card-title">{{ $product->name }}</h5>
                         <p class="card-text">{{ $product->price }} €</p>
-                        <a href="{{ route('products.show', $product->id) }}" class="btn btn-primary">Ajouter au panier</a>
-                    </div>
+  <form action="{{ route('cart.add', ['id' => $product->id, 'quantity' => 1]) }}" method="POST">
+    @csrf
+    <input type="hidden" name="quantity" value="1">
+    <button type="submit" class="btn btn-outline-warning">🛒</button>
+</form>
+                   </div>
                 </div>
             </div>
         @endforeach
