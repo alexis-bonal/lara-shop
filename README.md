@@ -26,7 +26,7 @@ Ce projet est une plateforme de commerce électronique développée avec le fram
 
 ### Validation du Panier
 - [x] Validation des informations de paiement avant de passer à la commande.
-- [ ] Possibilité d'appliquer des codes de réduction ou des coupons.
+- [x] Possibilité d'appliquer des codes de réduction ou des coupons.
 
 ### Page de Contact
 - [x] Formulaire de contact permettant aux utilisateurs de poser des questions ou de soumettre des commentaires.
