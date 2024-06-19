@@ -7,10 +7,8 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\AdminController;
-use App\Http\Controllers\Admin\ProductController as AdminProductController;
-use App\Http\Controllers\Admin\OrderController as AdminOrderController;
-use App\Http\Controllers\Admin\CouponController as AdminCouponController;
+use App\Http\Controllers\ContactController;
+
 
 // Page d'Accueil
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -39,10 +37,13 @@ Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
 Route::post('/cart/update/{id}', [CartController::class, 'update'])->name('cart.update');
 Route::post('/cart/remove/{id}', [CartController::class, 'remove'])->name('cart.remove');
 
-
 // Validation du Panier
 Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index');
 Route::post('/checkout', [CheckoutController::class, 'process'])->name('checkout.process');
+
+// Formualaire de contact
+Route::get('/contact', [ContactController::class, 'showForm'])->name('contact.show');
+Route::post('/contact', [ContactController::class, 'submitForm'])->name('contact.submit');
 
 // Espace Utilisateur
 Auth::routes();

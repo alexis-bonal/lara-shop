@@ -21,7 +21,6 @@
         }
         .content-wrapper {
             margin-top: 40px;
-
         }
         .container-custom {
             margin-left: auto;
@@ -49,12 +48,15 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
-                           <li class="nav-item">
-                <a class="nav-link" href="{{ url('/products') }}">Produits</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{ url('/cart') }}">Panier</a>
-            </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/products') }}">Produits</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/cart') }}">Panier</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/contact') }}">Contact</a>
+                        </li>
 
                         @guest
                             @if (Route::has('login'))
@@ -98,6 +100,8 @@
                 @yield('content')
             </div>
         </main>
+
+       @include('layouts.footer')
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
