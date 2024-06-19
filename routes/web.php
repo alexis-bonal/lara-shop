@@ -47,8 +47,9 @@ Route::post('/checkout', [CheckoutController::class, 'process'])->name('checkout
 // Espace Utilisateur
 Auth::routes();
 Route::get('/user/orders', [UserController::class, 'orders'])->name('user.orders')->middleware('auth');
+Route::get('/user/orders/{id}', [UserController::class, 'orderDetails'])->name('user.order.details')->middleware('auth');
 
-
-// Accès Administration
-
-
+Route::middleware(['auth'])->group(function () {
+    Route::get('/user/orders', [UserController::class, 'orders'])->name('user.orders');
+    Route::get('/user/orders/{id}', [UserController::class, 'orderDetails'])->name('user.order.details');
+});
