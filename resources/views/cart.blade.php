@@ -36,8 +36,8 @@
                         <td>
                             <form action="{{ route('cart.update', $id) }}" method="POST">
                                 @csrf
-                                <input type="number" name="quantity" value="{{ $details['quantity'] }}" min="1" class="form-control" style="width: 70px;">
-                                <button type="submit" class="btn btn-primary btn-sm mt-1">Mettre à jour</button>
+                                    <input type="number" name="quantity" value="{{ $details['quantity'] }}" min="1" class="form-control" style="width: 70px;">
+                                <button type="submit" class="btn btn-primary btn-sm mt-1">Update</button>
                             </form>
                         </td>
                         <td>${{ $details['price'] }}</td>
@@ -45,7 +45,7 @@
                         <td>
                             <form action="{{ route('cart.remove', $id) }}" method="POST">
                                 @csrf
-                                <button type="submit" class="btn btn-danger btn-sm">Supprimer</button>
+                                <button type="submit" class="btn btn-danger btn-sm">Remove</button>
                             </form>
                         </td>
                     </tr>
