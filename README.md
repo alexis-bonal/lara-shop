@@ -6,7 +6,7 @@ Ce projet est une plateforme de commerce électronique développée avec le fram
 
 ### Page d'Accueil
 - [x] Présentation générale du site avec un carousel, des promotions et des offres spéciales.
-- [ ] Liens vers les différentes catégories de produits.
+- [x] Liens vers les différentes catégories de produits.
 
 ### Page de Produits
 - [x] Affichage des produits par catégorie.
