@@ -5,35 +5,35 @@ Ce projet est une plateforme de commerce électronique développée avec le fram
 ## Fonctionnalités
 
 ### Page d'Accueil
-- [ ] Présentation générale du site avec un carousel, des promotions et des offres spéciales.
+- [x] Présentation générale du site avec un carousel, des promotions et des offres spéciales.
 - [ ] Liens vers les différentes catégories de produits.
 
 ### Page de Produits
-- [ ] Affichage des produits par catégorie.
-- [ ] Possibilité de filtrer les produits par prix, popularité, etc.
+- [x] Affichage des produits par catégorie.
+- [x] Possibilité de filtrer les produits par prix, popularité, etc.
 
 ### Navbar
-- [ ] Navbar avec des liens vers la page d'accueil, la page de produits, la page de contact et le panier.
+- [x] Navbar avec des liens vers la page d'accueil, la page de produits, la page de contact et le panier.
 
 ### Page de Détail d'un Produit
-- [ ] Affichage détaillé d'un produit, y compris son nom, sa description, son prix, son image, etc.
-- [ ] Possibilité d'ajouter le produit au panier avec une quantité spécifiée.
+- [x] Affichage détaillé d'un produit, y compris son nom, sa description, son prix, son image, etc.
+- [x] Possibilité d'ajouter le produit au panier avec une quantité spécifiée.
 
 ### Page de Panier
-- [ ] Récapitulatif des produits ajoutés au panier par l'utilisateur.
-- [ ] Possibilité de modifier la quantité des produits ou de supprimer des produits du panier.
-- [ ] Affichage du total de la commande.
+- [x] Récapitulatif des produits ajoutés au panier par l'utilisateur.
+- [x] Possibilité de modifier la quantité des produits ou de supprimer des produits du panier.
+- [x] Affichage du total de la commande.
 
 ### Validation du Panier
-- [ ] Validation des informations de paiement avant de passer à la commande.
+- [x] Validation des informations de paiement avant de passer à la commande.
 - [ ] Possibilité d'appliquer des codes de réduction ou des coupons.
 
 ### Page de Contact
-- [ ] Formulaire de contact permettant aux utilisateurs de poser des questions ou de soumettre des commentaires.
+- [x] Formulaire de contact permettant aux utilisateurs de poser des questions ou de soumettre des commentaires.
 
 ### Espace Utilisateur
-- [ ] Possibilité pour les utilisateurs de créer un compte et de se connecter.
-- [ ] Historique des commandes passées avec les détails de chaque commande.
+- [x] Possibilité pour les utilisateurs de créer un compte et de se connecter.
+- [x] Historique des commandes passées avec les détails de chaque commande.
 
 ### Accès Administration
 - [ ] Interface d'administration sécurisée avec authentification.
