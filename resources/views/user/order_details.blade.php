@@ -5,8 +5,15 @@
     <h1>Détails de la commande #{{ $order->id }}</h1>
 
     <div class="mb-4">
-        <h3>Total: {{ $order->total_price }} €</h3>
-        <h4>Status: {{ $order->status }}</h4>
+        @if ($order->coupon_code)
+            <h3>Sous-total: {{ $order->total_price + $order->discount }} €</h3>
+            <h4>Code Promo: {{ $order->coupon_code }}</h4>
+            <h4>Réduction: -{{ $order->discount }} €</h4>
+            <h3>Total après réduction: {{ $order->total_price }} €</h3>
+        @else
+            <h3>Total: {{ $order->total_price }} €</h3>
+        @endif
+        <h4 class="mt-4">Status: {{ $order->status }}</h4>
     </div>
 
     @if ($order->products->count() > 0)

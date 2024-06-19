@@ -1,27 +1,30 @@
 <?php
 
-namespace App\Models;
+    namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+    use Illuminate\Database\Eloquent\Factories\HasFactory;
+    use Illuminate\Database\Eloquent\Model;
 
-class Order extends Model
-{
-    use HasFactory;
-
-    protected $fillable = [
-        'user_id',
-        'total_price',
-        'status'
-    ];
-
-    public function user()
+    class Order extends Model
     {
-        return $this->belongsTo(User::class);
-    }
+        use HasFactory;
 
-    public function products()
-    {
-        return $this->belongsToMany(Product::class)->withPivot('quantity', 'price');
+        protected $fillable = [
+            'user_id',
+            'total_price',
+            'status',
+            'coupon_code',
+            'discount',
+        ];
+
+        public function user()
+        {
+            return $this->belongsTo(User::class);
+        }
+
+        public function products()
+        {
+            return $this->belongsToMany(Product::class)->withPivot('quantity', 'price');
+        }
     }
-}
+?>
