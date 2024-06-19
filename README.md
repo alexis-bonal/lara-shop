@@ -36,9 +36,9 @@ Ce projet est une plateforme de commerce électronique développée avec le fram
 - [x] Historique des commandes passées avec les détails de chaque commande.
 
 ### Accès Administration
-- [ ] Interface d'administration sécurisée avec authentification.
-- [ ] Possibilité de gérer les produits (ajouter, modifier, supprimer).
-- [ ] Vue d'ensemble des commandes passées avec la possibilité de les marquer comme traitées ou en attente.
+- [x] Interface d'administration sécurisée avec authentification.
+- [x] Possibilité de gérer les produits (ajouter, modifier, supprimer).
+- [x] Vue d'ensemble des commandes passées avec la possibilité de les marquer comme traitées ou en attente.
 - [ ] Gestion des coupons de réductions.
 
 ## Installation
