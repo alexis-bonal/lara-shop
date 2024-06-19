@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="container">
+        <h1>Nos produits</h1>
     <form method="GET" action="{{ route('products.index') }}">
 
         <div class="row">

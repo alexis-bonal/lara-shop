@@ -2,15 +2,13 @@
 
 @section('content')
 <div class="jumbotron text-center">
-    <h1 class="display-4">Bienvenue sur notre site E-Commerce!</h1>
-    <p class="lead">Découvrez notre large gamme de produits, profitez des promotions spéciales et achetez en toute simplicité.</p>
+    <h1 class="display-4"> LaraShop pour l'innovation !</h1>
+    <p class="lead">Plongez dans un univers où la technologie rencontre le style. Avec LaraShop, accédez à une sélection exclusive de gadgets Apple, des derniers iPhone aux MacBook révolutionnaires, le tout à des prix irrésistibles.</p>
     <hr class="my-4">
-    <p>Parcourez nos catégories et trouvez les meilleures offres du marché.</p>
-    <a class="btn btn-primary btn-lg" href="{{ url('/products') }}" role="button">Acheter Maintenant</a>
+    <a class="btn btn-primary btn-lg" href="{{ url('/products') }}" role="button">Découvrez nos produits</a>
 </div>
-
 <div class="container-custom">
-    <h2 class="my-4">Produits en Vedette</h2>
+    <h2 class="my-4">Produits en vedette</h2>
     <div class="row">
         @foreach ($products as $product)
             <div class="col-md-4 mb-4">

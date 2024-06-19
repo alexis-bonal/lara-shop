@@ -17,7 +17,7 @@
 
         protected $hidden = [
             'password',
-            'remember_token',
+            'remember_token'
         ];
 
         protected function casts(): array

@@ -8,6 +8,8 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\AdminController;
+
 
 
 // Page d'Accueil
@@ -59,3 +61,13 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/user/orders', [UserController::class, 'orders'])->name('user.orders');
     Route::get('/user/orders/{id}', [UserController::class, 'orderDetails'])->name('user.order.details');
 });
+
+
+
+
+Route::get('admin/products', [AdminController::class, 'index'])->name('admin.index');
+Route::get('admin/products/create', [AdminController::class, 'create'])->name('admin.create');
+Route::post('admin/products', [AdminController::class, 'store'])->name('admin.store');
+Route::get('admin/products/{id}/edit', [AdminController::class, 'edit'])->name('admin.edit');
+Route::put('admin/products/{id}', [AdminController::class, 'update'])->name('admin.update');
+Route::delete('admin/products/{id}', [AdminController::class, 'destroy'])->name('admin.destroy');

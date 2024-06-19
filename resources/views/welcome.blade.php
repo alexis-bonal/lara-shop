@@ -48,7 +48,9 @@
                                         >
                                             Inscription
                                         </a>
+                                        
                                     @endif
+                                    
                                 @endauth
                             </nav>
                         @endif
