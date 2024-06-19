@@ -3,21 +3,28 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
-namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
 use App\Models\Product;
-use App\Models\Category;
 
 class ProductController extends Controller
 {
-public function index()
-{
-    $products = Product::all();
-    return view('products', compact('products'));
-}
+    public function index(Request $request)
+    {
+        $query = Product::query();
 
+        if ($request->filled('category')) {
+            $query->where('category', $request->category);
+        }
+
+        if ($request->filled('sort_by')) {
+            $sortBy = $request->sort_by;
+            $sortOrder = $request->sort_order ?? 'asc';
+            $query->orderBy($sortBy, $sortOrder);
+        }
+
+        $products = $query->get();
+
+        return view('products', compact('products'));
+    }
 
     public function category($category)
     {

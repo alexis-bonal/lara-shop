@@ -44,12 +44,7 @@ Route::post('/checkout', [CheckoutController::class, 'process'])->name('checkout
 Auth::routes();
 Route::get('/user/orders', [UserController::class, 'orders'])->name('user.orders')->middleware('auth');
 
+
 // Accès Administration
-Route::middleware(['auth', 'admin'])->group(function () {
-    Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
-    Route::resource('/admin/products', AdminProductController::class);
-    Route::resource('/admin/orders', AdminOrderController::class);
-    Route::resource('/admin/coupons', AdminCouponController::class);
 
 
-});
