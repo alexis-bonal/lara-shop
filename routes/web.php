@@ -9,6 +9,7 @@ use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CouponController;
 
 
 
@@ -62,12 +63,16 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/user/orders/{id}', [UserController::class, 'orderDetails'])->name('user.order.details');
 });
 
-
-
-
 Route::get('admin/products', [AdminController::class, 'index'])->name('admin.index');
 Route::get('admin/products/create', [AdminController::class, 'create'])->name('admin.create');
 Route::post('admin/products', [AdminController::class, 'store'])->name('admin.store');
 Route::get('admin/products/{id}/edit', [AdminController::class, 'edit'])->name('admin.edit');
 Route::put('admin/products/{id}', [AdminController::class, 'update'])->name('admin.update');
 Route::delete('admin/products/{id}', [AdminController::class, 'destroy'])->name('admin.destroy');
+
+Route::get('admin/coupons', [CouponController::class, 'index'])->name('admin.coupons.index');
+Route::get('admin/coupons/create', [CouponController::class, 'create'])->name('admin.coupons.create');
+Route::post('admin/coupons', [CouponController::class, 'store'])->name('admin.coupons.store');
+Route::get('admin/coupons/{id}/edit', [CouponController::class, 'edit'])->name('admin.coupons.edit');
+Route::put('admin/coupons/{id}', [CouponController::class, 'update'])->name('admin.coupons.update');
+Route::delete('admin/coupons/{id}', [CouponController::class, 'destroy'])->name('admin.coupons.destroy');
