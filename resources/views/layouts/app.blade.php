@@ -29,6 +29,10 @@
             padding-left: 15px;
             padding-right: 15px;
         }
+        .logo-round {
+            border-radius: 50%;
+            height: 60px;
+        }
     </style>
 
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
@@ -38,7 +42,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    <img src="{{ asset('storage/images/logo.webp') }}" alt="" class="logo-round">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
