@@ -13,15 +13,15 @@
         @foreach ($products as $product)
             <div class="col-md-4 mb-4">
                 <div class="card h-100">
-                    <img src="{{ $product->image }}" class="card-img-top" alt="{{ $product->name }}">
+                    <img src="{{ asset('storage/' . $product->image) }}" class="card-img-top" alt="{{ $product->name }}">
                     <div class="card-body">
                         <h5 class="card-title">{{ $product->name }}</h5>
                         <p class="card-text">{{ $product->price }} €</p>
-  <form action="{{ route('cart.add', ['id' => $product->id, 'quantity' => 1]) }}" method="POST">
-    @csrf
-    <input type="hidden" name="quantity" value="1">
-    <button type="submit" class="btn btn-outline-warning">🛒</button>
-</form>
+                      <form action="{{ route('cart.add', ['id' => $product->id, 'quantity' => 1]) }}" method="POST">
+                        @csrf
+                        <input type="hidden" name="quantity" value="1">
+                        <button type="submit" class="btn btn-outline-warning">🛒</button>
+                    </form>
                    </div>
                 </div>
             </div>
