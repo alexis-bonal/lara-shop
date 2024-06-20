@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use Illuminate\Support\Facades\Storage;
-
+use App\Models\Order;
 class AdminController extends Controller
 {
     public function index()
@@ -51,8 +51,6 @@ class AdminController extends Controller
         return view('admin.edit', compact('product'));
     }
 
-    
-
     public function update(Request $request, $id)
     {
         $request->validate([
@@ -97,4 +95,24 @@ class AdminController extends Controller
         return redirect()->route('admin.index')
                         ->with('success', 'Product deleted successfully.');
     }
+
+    public function orders()
+        {
+            $orders = Order::all();
+            return view('admin.orders.index', compact('orders'));
+        }
+
+        public function updateOrderStatus(Request $request, $id)
+        {
+            $request->validate([
+                'status' => 'required|in:pending,processing,completed,shipped,delivered',
+            ]);
+
+            $order = Order::find($id);
+            $order->status = $request->status;
+            $order->save();
+
+            return redirect()->route('admin.orders.index')
+                            ->with('success', 'Order status updated successfully.');
+        }
 }
