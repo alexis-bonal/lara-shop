@@ -56,7 +56,6 @@
                 <a class="nav-link" href="{{ url('/cart') }}">Panier</a>
             </li>
         @endauth
-                        
 
                         @guest
                             @if (Route::has('login'))
@@ -71,11 +70,21 @@
                                 </li>
                             @endif
                         @else
-                        @if(Auth::user() && Auth::user()->is_admin == 1)
-    <li class="nav-item">
-        <a class="nav-link" href="{{ route('admin.index') }}">Admin</a>
-    </li>
-@endif
+                            @if(Auth::user() && Auth::user()->is_admin == 1)
+                                <li class="nav-item dropdown">
+                                    <a id="adminDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                        Admin
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="adminDropdown">
+                                        <a class="dropdown-item" href="{{ route('admin.index') }}">
+                                            Gérer les Produits
+                                        </a>
+                                        <a class="dropdown-item" href="{{ route('admin.coupons.index') }}">
+                                            Gérer les Coupons
+                                        </a>
+                                    </div>
+                                </li>
+                            @endif
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
@@ -95,7 +104,7 @@
                                 </div>
                             </li>
                         @endguest
-                        
+
                     </ul>
                 </div>
             </div>
