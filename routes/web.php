@@ -76,3 +76,7 @@ Route::post('admin/coupons', [CouponController::class, 'store'])->name('admin.co
 Route::get('admin/coupons/{id}/edit', [CouponController::class, 'edit'])->name('admin.coupons.edit');
 Route::put('admin/coupons/{id}', [CouponController::class, 'update'])->name('admin.coupons.update');
 Route::delete('admin/coupons/{id}', [CouponController::class, 'destroy'])->name('admin.coupons.destroy');
+
+Route::get('admin/orders', [AdminController::class, 'orders'])->name('admin.orders.index');
+Route::post('admin/orders/{id}/update-status', [AdminController::class, 'updateOrderStatus'])->name('admin.orders.updateStatus');
+

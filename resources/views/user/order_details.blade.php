@@ -13,7 +13,28 @@
         @else
             <h3>Total: {{ $order->total_price }} €</h3>
         @endif
-        <h4 class="mt-4">Status: {{ $order->status }}</h4>
+        <h4 class="mt-4">
+            Status:
+            @switch($order->status)
+                @case('pending')
+                    En attente
+                    @break
+                @case('processing')
+                    En cours
+                    @break
+                @case('completed')
+                    Terminé
+                    @break
+                @case('shipped')
+                    Expédié
+                    @break
+                @case('delivered')
+                    Livré
+                    @break
+                @default
+                    {{ $order->status }}
+            @endswitch
+        </h4>
     </div>
 
     @if ($order->products->count() > 0)

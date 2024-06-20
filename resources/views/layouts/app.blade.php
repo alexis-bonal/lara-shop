@@ -48,14 +48,14 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
-                          @auth
-            <li class="nav-item">
-                <a class="nav-link" href="{{ url('/products') }}">Produits</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{ url('/cart') }}">Panier</a>
-            </li>
-        @endauth
+                        @auth
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url('/products') }}">Produits</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url('/cart') }}">Panier</a>
+                            </li>
+                        @endauth
 
                         @guest
                             @if (Route::has('login'))
@@ -66,7 +66,7 @@
 
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __("Inscription") }}</a>
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Inscription') }}</a>
                                 </li>
                             @endif
                         @else
@@ -81,6 +81,9 @@
                                         </a>
                                         <a class="dropdown-item" href="{{ route('admin.coupons.index') }}">
                                             Gérer les Coupons
+                                        </a>
+                                        <a class="dropdown-item" href="{{ route('admin.orders.index') }}">
+                                            Gérer les Commandes
                                         </a>
                                     </div>
                                 </li>
