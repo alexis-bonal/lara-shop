@@ -39,17 +39,17 @@ Ce projet est une plateforme de commerce électronique développée avec le fram
 - [x] Interface d'administration sécurisée avec authentification.
 - [x] Possibilité de gérer les produits (ajouter, modifier, supprimer).
 - [x] Vue d'ensemble des commandes passées avec la possibilité de les marquer comme traitées ou en attente.
-- [ ] Gestion des coupons de réductions.
+- [x] Gestion des coupons de réductions.
 
 ## Installation
 
 1. Cloner le dépôt GitHub :
     ```bash
-    git clone https://github.com/votre-utilisateur/votre-depot.git
+    git clone git@github.com:alexis-bonal/lara-shop.git
     ```
 2. Accéder au répertoire du projet :
     ```bash
-    cd votre-depot
+    cd lara-shop/
     ```
 3. Installer les dépendances avec Composer :
     ```bash
@@ -68,6 +68,7 @@ Ce projet est une plateforme de commerce électronique développée avec le fram
 7. Exécuter les migrations et les seeders :
     ```bash
     php artisan migrate --seed
+    php artisan migrate
     ```
 8. Installer les dépendances front-end :
     ```bash
