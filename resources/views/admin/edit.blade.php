@@ -20,12 +20,23 @@
             </div>
             <div class="form-group">
                 <label for="image">Image du produit :</label>
-                <input type="file" class="form-control" id="image" name="image">
-                @if ($product->image)
-                    <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" width="100">
-                @endif
+               <input type="file" class="form-control" id="image" name="image" onchange="previewImage(event)">
+<img id="image-preview" src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" width="100">
+
             </div>
             <button type="submit" class="btn btn-primary">Mettre à jour</button>
         </form>
     </div>
+
+   <script>
+    function previewImage(event) {
+        var reader = new FileReader();
+        reader.onload = function(){
+            var output = document.getElementById('image-preview');
+            output.src = reader.result;
+        };
+        reader.readAsDataURL(event.target.files[0]);
+    }
+</script>
+
 @endsection
